@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="theme-color" content="#F8C8DC" />
+<title>The Wedding of Arjuna & Anindya</title>
+
+<!-- SEO & Share Preview -->
+<meta name="description" content="Kami mengundang Anda untuk hadir di hari bahagia kami, Arjuna & Anindya." />
+<meta property="og:title" content="The Wedding of Arjuna & Anindya" />
+<meta property="og:description" content="Save the date! 14 Februari 2027" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/F8C8DC/ffffff?text=Arjuna+%26+Anindya" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- QR Code Library -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<style>
+/* =========================
+   DESIGN TOKENS
+   ========================= */
+:root {
+  --pink-50:  #FFF0F5;
+  --pink-100: #FCE4EC;
+  --pink-200: #F8BBD0;
+  --pink-300: #F48FB1;
+  --pink-400: #EC6B9A;
+  --pink-500: #D84B7D;
+
+  --blue-50:  #EAF4FB;
+  --blue-100: #D1E8F5;
+  --blue-200: #A8D0E8;
+  --blue-300: #7FB8DB;
+  --blue-400: #5A9FC8;
+  --blue-500: #3A7CA5;
+
+  --gold:     #C9A96E;
+  --gold-light:#E4D4A8;
+
+  --cream:    #FFF9F5;
+  --ink:      #2B2B3D;
+  --ink-soft: #5A5A6E;
+
+  --radius:   18px;
+  --shadow-soft: 0 10px 30px rgba(216, 75, 125, 0.08);
+  --shadow-md:   0 15px 40px rgba(58, 124, 165, 0.12);
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-script:  'Great Vibes', cursive;
+  --font-body:    'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Background gradient romantic */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 20%, var(--pink-100) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, var(--blue-100) 0%, transparent 40%),
+    linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+  z-index: -2;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* =========================
+   COVER / OPENING GATE
+   ========================= */
+#cover {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background:
+    linear-gradient(135deg, rgba(248,187,208,0.85), rgba(168,208,232,0.85)),
+    url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600') center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s;
+}
+#cover.opened {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+#cover .ornament {
+  width: 80px; height: 2px;
+  background: var(--gold-light);
+  margin: 1rem auto;
+  position: relative;
+}
+#cover .ornament::before, #cover .ornament::after {
+  content: '✦';
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  color: var(--gold-light);
+  font-size: 0.8rem;
+}
+#cover .ornament::before { left: -20px; }
+#cover .ornament::after  { right: -20px; }
+#cover .small { letter-spacing: 4px; font-size: 0.75rem; text-transform: uppercase; opacity: 0.9; }
+#cover h1 {
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0.5rem 0;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+#cover .date {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  margin-top: 0.5rem;
+}
+#cover .to {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+#cover .to strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+#openBtn {
+  margin-top: 2rem;
+  padding: 0.9rem 2.5rem;
+  background: #fff;
+  color: var(--pink-500);
+  border-radius: 50px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+#openBtn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+#openBtn i { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.2); }
+}
+
+/* =========================
+   MUSIC TOGGLE
+   ========================= */
+#musicToggle {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 999;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-400), var(--blue-400));
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.3s;
+}
+#musicToggle:hover { transform: scale(1.1); }
+#musicToggle.playing i { animation: spin 4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* =========================
+   NAVIGATION FLOATING
+   ========================= */
+#floatingNav {
+  position: fixed;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#floatingNav a {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(216, 75, 125, 0.3);
+  transition: all 0.3s;
+  position: relative;
+}
+#floatingNav a.active {
+  background: var(--pink-500);
+  transform: scale(1.4);
+}
+#floatingNav a::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 20px; top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#floatingNav a:hover::after { opacity: 1; }
+@media (max-width: 768px) { #floatingNav { display: none; } }
+
+/* =========================
+   SECTIONS
+   ========================= */
+section {
+  padding: 5rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s, transform 1s;
+}
+section.visible { opacity: 1; transform: translateY(0); }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-title .small {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink-500);
+}
+.section-title h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0.5rem 0;
+}
+.section-title .divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.section-title .divider::before,
+.section-title .divider::after {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+.section-title .divider i { color: var(--gold); font-size: 0.8rem; }
+
+/* =========================
+   OPENING / SAMBUTAN
+   ========================= */
+#opening { text-align: center; }
+.bismillah {
+  font-family: 'Amiri', serif;
+  font-size: 1.8rem;
+  color: var(--pink-500);
+  margin-bottom: 1rem;
+}
+.verse {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+.verse small {
+  display: block;
+  margin-top: 0.8rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+.greeting {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 600px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* =========================
+   COUPLE PROFILE
+   ========================= */
+.couple-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.couple-card { text-align: center; }
+.couple-photo {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+.couple-photo::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-300), var(--blue-300));
+  z-index: -1;
+}
+.couple-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.couple-card h3 {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--pink-500);
+  font-weight: 400;
+}
+.couple-card .full-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 0.5rem 0;
+}
+.couple-card .parents {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+.couple-card .socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.couple-card .socials a {
+  width: 35px; height: 35px;
+  border-radius: 50%;
+  background: var(--pink-50);
+  color: var(--pink-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.couple-card .socials a:hover {
+  background: var(--pink-500);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.ampersand {
+  font-family: var(--font-script);
+  font-size: 4rem;
+  color: var(--gold);
+}
+@media (max-width: 700px) {
+  .couple-wrap { grid-template-columns: 1fr; }
+  .ampersand { font-size: 3rem; }
+}
+
+/* =========================
+   LOVE STORY TIMELINE
+   ========================= */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--pink-200), var(--blue-200));
+  transform: translateX(-50%);
+}
+.tl-item {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem 2.5rem;
+}
+.tl-item:nth-child(odd)  { left: 0; text-align: right; }
+.tl-item:nth-child(even) { left: 50%; text-align: left; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--pink-400);
+  box-shadow: 0 0 0 4px var(--pink-100);
+}
+.tl-item:nth-child(odd)::before  { right: -8px; }
+.tl-item:nth-child(even)::before { left: -8px; border-color: var(--blue-400); box-shadow: 0 0 0 4px var(--blue-100); }
+.tl-date {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.tl-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.tl-desc { font-size: 0.9rem; color: var(--ink-soft); }
+@media (max-width: 700px) {
+  .timeline::before { left: 20px; }
+  .tl-item { width: 100%; padding-left: 3rem; padding-right: 1rem; text-align: left !important; left: 0 !important; }
+  .tl-item::before { left: 12px !important; right: auto !important; }
+}
+
+/* =========================
+   EVENT DETAILS
+   ========================= */
+.events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.event-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(248,187,208,0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.event-card:hover { transform: translateY(-5px); }
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink-300), var(--blue-300));
+}
+.event-card .icon {
+  width: 60px; height: 60px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-100), var(--blue-100));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--pink-500);
+}
+.event-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.event-card .info {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.event-card .info i { color: var(--pink-400); width: 16px; }
+
+/* Countdown */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.cd-box {
+  background: linear-gradient(135deg, var(--pink-400), var(--blue-400));
+  color: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  min-width: 80px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+.cd-box .num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.cd-box .label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  opacity: 0.9;
+}
+
+/* =========================
+   LOCATION
+   */
+.location-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.5rem;
+}
+.location-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.location-card p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1rem; }
+.map-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  margin-top: 1rem;
+}
+.map-frame iframe { width: 100%; height: 300px; border: 0; display: block; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  margin: 0.3rem;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink-400), var(--blue-400));
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-outline {
+  border: 1.5px solid var(--pink-400);
+  color: var(--pink-500);
+}
+.btn-outline:hover { background: var(--pink-500); color: #fff; }
+
+/* =========================
+   GALLERY
+   */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s;
+}
+.gallery-item:hover { transform: scale(1.03); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item::after {
+  content: '\f00e';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  inset: 0;
+  background: rgba(216,75,125,0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover::after { opacity: 1; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 90%; max-height: 90vh; border-radius: 10px; }
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 20px;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* =========================
+   RSVP & GUESTBOOK
+   */
+.rsvp-form {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--pink-100);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--cream);
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--pink-400);
+  background: #fff;
+}
+.form-group textarea { min-height: 100px; resize: vertical; }
+
+.radio-group {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.radio-group label {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.8rem;
+  border: 1.5px solid var(--pink-100);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.radio-group input { display: none; }
+.radio-group input:checked + span {
+  color: var(--pink-500);
+  font-weight: 500;
+}
+.radio-group label:has(input:checked) {
+  border-color: var(--pink-400);
+  background: var(--pink-50);
+}
+
+/* Guestbook list */
+.guestbook {
+  max-width: 600px;
+  margin: 0 auto;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+.guestbook::-webkit-scrollbar { width: 6px; }
+.guestbook::-webkit-scrollbar-thumb { background: var(--pink-200); border-radius: 3px; }
+.guest-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+  border-left: 3px solid var(--pink-300);
+  animation: slideIn 0.5s;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.guest-item .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.guest-item .name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.guest-item .badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  background: var(--pink-100);
+  color: var(--pink-500);
+}
+.guest-item .badge.no { background: var(--blue-100); color: var(--blue-500); }
+.guest-item .badge.ragu { background: var(--gold-light); color: #8a6d3b; }
+.guest-item .msg { font-size: 0.9rem; color: var(--ink-soft); }
+.guest-item .time { font-size: 0.75rem; color: #aaa; margin-top: 0.5rem; }
+
+/* =========================
+   GIFT / AMPLOP DIGITAL
+   */
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.gift-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+.gift-card::before {
+  content: '\f0eb';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: -20px; right: -20px;
+  font-size: 8rem;
+  color: var(--pink-50);
+  opacity: 0.6;
+}
+.gift-card .bank {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--pink-500);
+  margin-bottom: 0.5rem;
+}
+.gift-card .rek {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 2px;
+  margin: 0.5rem 0;
+}
+.gift-card .owner {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.gift-card .qris {
+  width: 180px; height: 180px;
+  margin: 1rem auto;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--pink-100);
+  border-radius: 10px;
+}
+
+/* =========================
+   CLOSING
+   */
+#closing {
+  text-align: center;
+  padding-bottom: 8rem;
+}
+.thanks {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-style: italic;
+}
+.closing-names {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: var(--pink-500);
+  margin: 2rem 0;
+}
+.closing-date {
+  font-family: var(--font-display);
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+/* =========================
+   SHARE & QR
+   */
+.share-section {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+#qrcode {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+#qrcode canvas, #qrcode img {
+  border-radius: 10px;
+  border: 4px solid var(--pink-100);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 3000;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  background: rgba(255,255,255,0.5);
+}
+footer i { color: var(--pink-500); }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div id="cover">
+  <div class="small">The Wedding Of</div>
+  <h1>Arjuna & Anindya</h1>
+  <div class="ornament"></div>
+  <div class="date">SABTU • 14 FEBRUARI 2027</div>
+  <div class="to">
+    Kepada Yth. Bapak/Ibu/Saudara/i
+    <strong id="guestName">Tamu Undangan</strong>
+  </div>
+  <button id="openBtn">
+    <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+  </button>
+</div>
+
+<!-- ================= MUSIC TOGGLE ================= -->
+<button id="musicToggle" title="Play/Pause Music">
+  <i class="fa-solid fa-music"></i>
+</button>
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= FLOATING NAV ================= -->
+<nav id="floatingNav">
+  <a href="#opening"   data-label="Pembuka"></a>
+  <a href="#couple"    data-label="Mempelai"></a>
+  <a href="#story"     data-label="Love Story"></a>
+  <a href="#event"     data-label="Acara"></a>
+  <a href="#location"  data-label="Lokasi"></a>
+  <a href="#gallery"   data-label="Galeri"></a>
+  <a href="#rsvp"      data-label="RSVP"></a>
+  <a href="#gift"      data-label="Hadiah"></a>
+  <a href="#closing"   data-label="Penutup"></a>
+</nav>
+
+<!-- ================= 1. OPENING ================= -->
+<section id="opening">
+  <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="verse">
+    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+    <small>— QS. Ar-Rum: 21</small>
+  </div>
+  <p class="greeting">
+    Assalamu'alaikum Warahmatullahi Wabarakatuh<br>
+    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
+  </p>
+</section>
+
+<!-- ================= 2. COUPLE ================= -->
+<section id="couple">
+  <div class="section-title">
+    <div class="small">The Couple</div>
+    <h2>Mempelai</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <div class="couple-wrap">
+    <div class="couple-card">
+      <div class="couple-photo">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Mempelai Pria">
+      </div>
+      <h3>Arjuna</h3>
+      <div class="full-name">Arjuna Wijaya Kusuma, S.T.</div>
+      <div class="parents">
+        Putra pertama dari<br>
+        Bapak Hendra Wijaya<br>
+        & Ibu Siti Aminah
+      </div>
+      <div class="socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="ampersand">&</div>
+
+    <div class="couple-card">
+      <div class="couple-photo">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="Mempelai Wanita">
+      </div>
+      <h3>Anindya</h3>
+      <div class="full-name">Anindya Larasati, S.Ked.</div>
+      <div class="parents">
+        Putri kedua dari<br>
+        Bapak Bambang Laras<br>
+        & Ibu Dewi Kartika
+      </div>
+      <div class="socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. LOVE STORY ================= -->
+<section id="story">
+  <div class="section-title">
+    <div class="small">Our Journey</div>
+    <h2>Love Story</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Maret 2019</div>
+      <div class="tl-title">Pertama Bertemu</div>
+      <div class="tl-desc">Kami pertama kali bertemu di acara seminar kampus. Senyummu yang tulus menjadi awal dari segalanya.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Agustus 2019</div>
+      <div class="tl-title">Mulai Dekat</div>
+      <div class="tl-desc">Obrolan panjang di kedai kopi, tawa yang tak pernah habis, dan perasaan yang perlahan tumbuh.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Februari 2020</div>
+      <div class="tl-title">Resmi Berpacaran</div>
+      <div class="tl-desc">Di bawah langit senja, kami memutuskan untuk menjalani kisah ini bersama, saling melengkapi satu sama lain.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Desember 2025</div>
+      <div class="tl-title">Lamaran</div>
+      <div class="tl-desc">Dengan restu kedua keluarga, kami melangkah ke babak yang lebih serius. Air mata bahagia menemani hari itu.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Februari 2027</div>
+      <div class="tl-title">Menuju Pelaminan</div>
+      <div class="tl-desc">Dan kini, kami siap mengikat janji suci di hadapan Allah SWT dan orang-orang tercinta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. EVENT ================= -->
+<section id="event">
+  <div class="section-title">
+    <div class="small">Save The Date</div>
+    <h2>Tanggal Acara</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <div class="events">
+    <div class="event-card">
+      <div class="icon"><i class="fa-solid fa-ring"></i></div>
+      <h3>Akad Nikah</h3>
+      <div class="info"><i class="fa-regular fa-calendar"></i> Sabtu, 14 Februari 2027</div>
+      <div class="info"><i class="fa-regular fa-clock"></i> 08.00 - 10.00 WIB</div>
+    </div>
+    <div class="event-card">
+      <div class="icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+      <h3>Resepsi</h3>
+      <div class="info"><i class="fa-regular fa-calendar"></i> Sabtu, 14 Februari 2027</div>
+      <div class="info"><i class="fa-regular fa-clock"></i> 11.00 - 15.00 WIB</div>
+    </div>
+  </div>
+
+  <div class="countdown" id="countdown">
+    <div class="cd-box"><div class="num" id="cd-days">0</div><div class="label">Hari</div></div>
+    <div class="cd-box"><div class="num" id="cd-hours">0</div><div class="label">Jam</div></div>
+    <div class="cd-box"><div class="num" id="cd-mins">0</div><div class="label">Menit</div></div>
+    <div class="cd-box"><div class="num" id="cd-secs">0</div><div class="label">Detik</div></div>
+  </div>
+</section>
+
+<!-- ================= 5. LOCATION ================= -->
+<section id="location">
+  <div class="section-title">
+    <div class="small">Venue</div>
+    <h2>Lokasi Acara</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <div class="location-card">
+    <h3>Grand Ballroom Hotel Mulia</h3>
+    <p>Jl. Asia Afrika, Senayan, Jakarta Selatan 10270</p>
+    <a href="https://maps.google.com/?q=Hotel+Mulia+Jakarta" target="_blank" class="btn btn-primary">
+      <i class="fa-solid fa-location-dot"></i> Buka di Google Maps
+    </a>
+    <a href="https://www.google.com/maps/dir//Hotel+Mulia+Jakarta" target="_blank" class="btn btn-outline">
+      <i class="fa-solid fa-route"></i> Petunjuk Arah
+    </a>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3!2d106.8!3d-6.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTMnMTIuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sen!2sid!4v1" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. GALLERY ================= -->
+<section id="gallery">
+  <div class="section-title">
+    <div class="small">Moments</div>
+    <h2>Galeri Foto</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1525772764200-be829a350797?w=500" alt=""></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=500" alt=""></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ================= 7. RSVP & GUESTBOOK ================= -->
+<section id="rsvp">
+  <div class="section-title">
+    <div class="small">RSVP</div>
+    <h2>Konfirmasi & Ucapan</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <form class="rsvp-form" id="rsvpForm">
+    <div class="form-group">
+      <label>Nama</label>
+      <input type="text" id="guestInput" required placeholder="Nama Anda">
+    </div>
+    <div class="form-group">
+      <label>Konfirmasi Kehadiran</label>
+      <div class="radio-group">
+        <label><input type="radio" name="attend" value="Hadir" checked><span>✓ Hadir</span></label>
+        <label><input type="radio" name="attend" value="Tidak"><span>✗ Tidak Hadir</span></label>
+        <label><input type="radio" name="attend" value="Ragu"><span>? Masih Ragu</span></label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Jumlah Tamu</label>
+      <select id="guestCount">
+        <option value="1">1 Orang</option>
+        <option value="2">2 Orang</option>
+        <option value="3">3 Orang</option>
+        <option value="4">4 Orang</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Ucapan & Doa</label>
+      <textarea id="guestMsg" placeholder="Tulis ucapan & doa untuk kedua mempelai..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+      <i class="fa-solid fa-paper-plane"></i> Kirim
+    </button>
+  </form>
+
+  <div class="guestbook" id="guestbook"></div>
+</section>
+
+<!-- ================= 8. GIFT ================= -->
+<section id="gift">
+  <div class="section-title">
+    <div class="small">Wedding Gift</div>
+    <h2>Amplop Digital</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <p style="text-align:center; color:var(--ink-soft); max-width:600px; margin:0 auto 2rem;">
+    Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, dapat melalui:
+  </p>
+
+  <div class="gift-grid">
+    <div class="gift-card">
+      <div class="bank">Bank BCA</div>
+      <div class="rek" id="rek1">1234567890</div>
+      <div class="owner">a.n. Arjuna Wijaya Kusuma</div>
+      <button class="btn btn-primary" onclick="copyText('1234567890', 'Nomor rekening disalin!')">
+        <i class="fa-regular fa-copy"></i> Salin
+      </button>
+    </div>
+    <div class="gift-card">
+      <div class="bank">Bank Mandiri</div>
+      <div class="rek" id="rek2">0987654321</div>
+      <div class="owner">a.n. Anindya Larasati</div>
+      <button class="btn btn-primary" onclick="copyText('0987654321', 'Nomor rekening disalin!')">
+        <i class="fa-regular fa-copy"></i> Salin
+      </button>
+    </div>
+  </div>
+
+  <div class="share-section" style="margin-top:2rem;">
+    <h3 style="font-family:var(--font-display); margin-bottom:1rem;">QRIS</h3>
+    <p style="font-size:0.9rem; color:var(--ink-soft);">Scan untuk kirim hadiah via e-wallet</p>
+    <div id="qrcode"></div>
+  </div>
+</section>
+
+<!-- ================= 9. CLOSING ================= -->
+<section id="closing">
+  <div class="section-title">
+    <div class="small">Thank You</div>
+    <h2>Penutup</h2>
+    <div class="divider"><i class="fa-solid fa-heart"></i></div>
+  </div>
+
+  <p class="thanks">
+    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu kepada kami.
+    <br><br>
+    Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
+  </p>
+
+  <p style="color:var(--ink-soft); font-size:0.9rem;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+
+  <div class="closing-names">Arjuna & Anindya</div>
+  <div class="closing-date">14 • 02 • 2027</div>
+
+  <!-- Share Section -->
+  <div class="share-section" style="margin-top:3rem;">
+    <h3 style="font-family:var(--font-display); margin-bottom:0.5rem;">Bagikan Undangan</h3>
+    <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:1rem;">Sebarkan kebahagiaan ini kepada orang terdekat</p>
+    <button class="btn btn-primary" onclick="shareWA()">
+      <i class="fa-brands fa-whatsapp"></i> Share via WhatsApp
+    </button>
+    <button class="btn btn-outline" onclick="copyLink()">
+      <i class="fa-solid fa-link"></i> Salin Link
+    </button>
+  </div>
+</section>
+
+<footer>
+  Made with <i class="fa-solid fa-heart"></i> for Arjuna & Anindya • 2026
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================
+   PERSONALIZE GUEST NAME
+   ========================= */
+const params = new URLSearchParams(window.location.search);
+const guestName = params.get('to');
+if (guestName) {
+  document.getElementById('guestName').textContent = decodeURIComponent(guestName);
+  document.getElementById('guestInput').value = decodeURIComponent(guestName);
+}
+
+/* =========================
+   OPEN INVITATION
+   ========================= */
+document.getElementById('openBtn').addEventListener('click', () => {
+  document.getElementById('cover').classList.add('opened');
+  document.body.style.overflow = 'auto';
+  const audio = document.getElementById('bgMusic');
+  audio.volume = 0.5;
+  audio.play().then(() => {
+    document.getElementById('musicToggle').classList.add('playing');
+  }).catch(e => console.log('Autoplay blocked:', e));
+});
+document.body.style.overflow = 'hidden';
+
+/* =========================
+   MUSIC TOGGLE
+   ========================= */
+const musicToggle = document.getElementById('musicToggle');
+const bgMusic = document.getElementById('bgMusic');
+musicToggle.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.classList.add('playing');
+  } else {
+    bgMusic.pause();
+    musicToggle.classList.remove('playing');
+  }
+});
+
+/* =========================
+   COUNTDOWN
+   ========================= */
+const weddingDate = new Date('2027-02-14T08:00:00+07:00').getTime();
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+  if (diff < 0) {
+    document.getElementById('countdown').innerHTML = '<div style="font-family:var(--font-display); font-size:1.5rem; color:var(--pink-500);">Alhamdulillah, hari bahagia telah tiba! 💍</div>';
+    return;
+  }
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const s = Math.floor((diff % (1000*60)) / 1000);
+  document.getElementById('cd-days').textContent  = d;
+  document.getElementById('cd-hours').textContent = h;
+  document.getElementById('cd-mins').textContent  = m;
+  document.getElementById('cd-secs').textContent  = s;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* =========================
+   SCROLL REVEAL
+   ========================= */
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('#floatingNav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Update nav
+      const id = entry.target.id;
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    }
+  });
+}, { threshold: 0.15 });
+sections.forEach(s => observer.observe(s));
+
+/* =========================
+   LIGHTBOX GALLERY
+   ========================= */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+
+/* =========================
+   RSVP & GUESTBOOK
+   ========================= */
+const guestbook = document.getElementById('guestbook');
+let guests = JSON.parse(localStorage.getItem('wedding_guests') || '[]');
+
+function renderGuests() {
+  guestbook.innerHTML = '';
+  guests.slice().reverse().forEach(g => {
+    const badgeClass = g.attend === 'Hadir' ? '' : g.attend === 'Tidak' ? 'no' : 'ragu';
+    const icon = g.attend === 'Hadir' ? '✓' : g.attend === 'Tidak' ? '✗' : '?';
+    guestbook.innerHTML += `
+      <div class="guest-item">
+        <div class="head">
+          <div class="name">${escapeHtml(g.name)}</div>
+          <span class="badge ${badgeClass}">${icon} ${g.attend}</span>
+        </div>
+        <div class="msg">${escapeHtml(g.msg) || '<em style="color:#aaa;">(tanpa ucapan)</em>'}</div>
+        <div class="time">${g.time}</div>
+      </div>
+    `;
+  });
+}
+renderGuests();
+
+document.getElementById('rsvpForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('guestInput').value.trim();
+  const attend = document.querySelector('input[name="attend"]:checked').value;
+  const count = document.getElementById('guestCount').value;
+  const msg = document.getElementById('guestMsg').value.trim();
+  if (!name) return;
+
+  const newGuest = {
+    name, attend, count, msg,
+    time: new Date().toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })
+  };
+  guests.push(newGuest);
+  localStorage.setItem('wedding_guests', JSON.stringify(guests));
+  renderGuests();
+
+  // Reset form
+  document.getElementById('guestMsg').value = '';
+  showToast('Terima kasih atas ucapan & doanya! 🤍');
+
+  // Optional: kirim ke WhatsApp mempelai
+  // const waText = `*RSVP*%0ANama: ${name}%0AHadir: ${attend}%0AJumlah: ${count}%0AUcapan: ${msg}`;
+  // window.open(`https://wa.me/6281234567890?text=${waText}`, '_blank');
+});
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* =========================
+   UTILITIES
+   ========================= */
+function copyText(text, msg) {
+  navigator.clipboard.writeText(text).then(() => showToast(msg || 'Tersalin!'));
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+function shareWA() {
+  const url = window.location.href;
+  const text = `🤍 *The Wedding of Arjuna & Anindya*%0A%0AKami mengundang Anda untuk hadir di hari bahagia kami.%0A📅 Sabtu, 14 Februari 2027%0A%0ABuka undangan:%0A${url}`;
+  window.open(`https://wa.me/?text=${text}`, '_blank');
+}
+
+function copyLink() {
+  copyText(window.location.href, 'Link undangan disalin!');
+}
+
+/* =========================
+   QR CODE
+   ========================= */
+if (typeof QRCode !== 'undefined') {
+  new QRCode(document.getElementById('qrcode'), {
+    text: window.location.href,
+    width: 180,
+    height: 180,
+    colorDark: '#D84B7D',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+}
+</script>
+
+</body>
+</html>
